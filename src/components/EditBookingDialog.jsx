@@ -101,7 +101,7 @@ const EditBookingDialog = ({ isOpen, bookings, editingBooking, hotelId, closeDia
                     label="Check OUT"
                     value={checkOutDate}
                     disablePast={true}
-                    minDate={checkInDate}
+                    minDate={moment(checkInDate, "DD/MM/YYYY")}
                     maxDate={earliestNextDate}
                     shouldDisableDate={filterDisabledDates}
                     onChange={(newDate) => setCheckOutDate(newDate)}

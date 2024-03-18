@@ -11,10 +11,11 @@ const Hotels = () => {
             <h2>Hotels: </h2>
             <div className="hotels-list__container">
                 {hotels?.map(({ name, id }) => (
-                    <Link key={id} to={`hotel/${id}`}>
-                        <button>{name}</button>
-                    </Link>
-
+                    <button key={id}>
+                        <Link to={`hotel/${id}`}>
+                            {name}
+                        </Link>
+                    </button>
                 ))}
             </div>
 
