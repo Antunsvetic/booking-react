@@ -41,6 +41,18 @@
   color: #888;
 }
 
+.hotels-list__container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.hotels-list__container button{
+  width: 200px;
+}
+
 .MuiDayCalendar-weekContainer .Mui-disabled {
   pointer-events: auto !important;
  }

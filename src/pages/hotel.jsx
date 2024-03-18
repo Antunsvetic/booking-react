@@ -19,7 +19,7 @@ const Hotel = () => {
         <div>
             <Link to="/">Go back</Link>
             
-            <h1>Name: {hotel.name}</h1>
+            <h1>{hotel.name}</h1>
 
             <Bookings bookings={hotel.bookings} hotelId={hotelId}/>
 

@@ -10,7 +10,7 @@ export const MOCK_DATA = [
         bookings: []
     },
     {
-        id: 3,
+        id: 2,
         name: "Vila Diamond",
         bookings: []
     },
