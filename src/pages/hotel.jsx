@@ -17,7 +17,7 @@ const Hotel = () => {
 
     return (
         <div>
-            <button><Link to="/">Go back</Link></button>
+            <Link to="/"><button>Go back</button></Link>
             
             <h1>{hotel.name}</h1>
 

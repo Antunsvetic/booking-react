@@ -19,7 +19,7 @@ const EditBookingDialog = ({ isOpen, bookings, editingBooking, hotelId, closeDia
     const [checkInDate, setCheckInDate] = useState(editingBooking?.checkIn);
     const [checkOutDate, setCheckOutDate] = useState(editingBooking?.checkOut);
     const [earliestNextDate, setEarliestNextDate] = useState(null)
-    
+
     const isSaveButtonDisabled = !checkInDate || !checkOutDate;
 
     useEffect(() => {
@@ -53,13 +53,23 @@ const EditBookingDialog = ({ isOpen, bookings, editingBooking, hotelId, closeDia
     }, [bookings, editingBooking, checkInDate, checkOutDate]);
 
     const handleUpdateBooking = () => {
-        console.log("im here")
+        const { checkIn, checkOut } = editingBooking || {};
+
+        // if nothing changed dont update
+        if (checkIn === checkInDate && checkOut === checkOutDate) {
+            closeDialog()
+            return;
+        };
         dispatch(updateBooking({
             hotelId,
             bookingId: editingBooking.id,
             dates: {
-                checkIn: formatDateToString(checkInDate),
-                checkOut: formatDateToString(checkOutDate) 
+                checkIn: typeof checkInDate === "string"
+                    ? checkInDate
+                    : formatDateToString(checkInDate),
+                checkOut: typeof checkOutDate === "string"
+                    ? checkOutDate
+                    : formatDateToString(checkOutDate)
             }
         }))
         closeDialog()
@@ -72,11 +82,11 @@ const EditBookingDialog = ({ isOpen, bookings, editingBooking, hotelId, closeDia
     }
 
     const resetState = (type) => {
-        if(type === "CHECK_IN") {
+        if (type === "CHECK_IN") {
             setCheckInDate(null)
             setCheckOutDate(null)
         }
-        if(type === "CHECK_OUT") setCheckOutDate(null)
+        if (type === "CHECK_OUT") setCheckOutDate(null)
     }
 
     return (
