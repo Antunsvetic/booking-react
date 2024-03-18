@@ -4,7 +4,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import { Button } from '@mui/material';
+import { Button, getInitColorSchemeScript } from '@mui/material';
 
 import moment from 'moment';
 import DatePickerInput from './DatePickerInput';
@@ -51,7 +51,6 @@ const NewBookingDialog = ({ isOpen, closeDialog, bookings, hotelId }) => {
         });
     }, [bookings]);
 
-
     const handleCreateBooking = () => {
         dispatch(createNewBooking({
             hotelId,
@@ -60,6 +59,12 @@ const NewBookingDialog = ({ isOpen, closeDialog, bookings, hotelId }) => {
                 checkOut: formatDateToString(checkOutDate)
             }
         }))
+        closeDialog()
+        setCheckInDate(null)
+        setCheckOutDate(null)
+    }
+
+    const handleCloseDialog = () => {
         closeDialog()
         setCheckInDate(null)
         setCheckOutDate(null)
@@ -76,7 +81,7 @@ const NewBookingDialog = ({ isOpen, closeDialog, bookings, hotelId }) => {
     return (
         <Dialog
             open={isOpen}
-            onClose={closeDialog}
+            onClose={handleCloseDialog}
         >
             <DialogTitle>New booking</DialogTitle>
             <DialogContent>
@@ -104,7 +109,7 @@ const NewBookingDialog = ({ isOpen, closeDialog, bookings, hotelId }) => {
                 />
             </DialogContent>
             <DialogActions>
-                <Button onClick={closeDialog}>Close</Button>
+                <Button onClick={handleCloseDialog}>Close</Button>
                 <Button
                     onClick={handleCreateBooking}
                     disabled={isSaveButtonDisabled}
