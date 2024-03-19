@@ -40,17 +40,21 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  row-gap: 20px;
 }
 
-.hotel-card {
-  margin-bottom: 20px;
+.hotel-details__desc {
+  text-align: left;
+  margin-bottom: 50px;
 }
+
+
 
 /* Desktop */
 @media screen and (min-width: 60em) {
   .hotel-card {
      flex: 0 1 calc(33.33% - 1em); /* 3 cards in a row */
-     margin: 0.5em; /* Adjust the margin as needed */
+     margin: 0.3em; /* Adjust the margin as needed */
   }
  }
 

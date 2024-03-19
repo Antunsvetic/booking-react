@@ -4,7 +4,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import { Button, getInitColorSchemeScript } from '@mui/material';
+import { Button } from '@mui/material';
 
 import moment from 'moment';
 import DatePickerInput from './DatePickerInput';
@@ -71,11 +71,13 @@ const NewBookingDialog = ({ isOpen, closeDialog, bookings, hotelId }) => {
     }
 
     const resetState = (type) => {
-        if (type === "CHECK_IN") {
-            setCheckInDate(null)
-            setCheckOutDate(null)
+        switch (type) {
+            case "CHECK_IN":
+                setCheckInDate(null)
+                setCheckOutDate(null)
+            case "CHECK_OUT":
+                setCheckOutDate(null)
         }
-        if (type === "CHECK_OUT") setCheckOutDate(null)
     }
 
     return (

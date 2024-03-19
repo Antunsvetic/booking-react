@@ -4,7 +4,6 @@ import { deleteBooking } from "../state/hotels/hotelsSlice";
 
 import EditBookingDialog from "./EditBookingDialog";
 
-
 const Bookings = ({ bookings, hotelId }) => {
     const dispatch = useDispatch()
 
@@ -30,7 +29,7 @@ const Bookings = ({ bookings, hotelId }) => {
     return (
         <>
             <h2>Bookings: </h2>
-            
+
             {bookings?.map(booking => (
                 <div key={booking.id}>
                     <p>Check in: {booking.checkIn} - Check out: {booking.checkOut}</p>

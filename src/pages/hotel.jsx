@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom";
 
 import Bookings from "../components/Bookings";
 import NewBookingDialog from "../components/NewBookingDialog";
+import HotelInfoCard from "../components/HotelInfoCard";
 
 const Hotel = () => {
     const { hotelId } = useParams();
@@ -18,19 +19,20 @@ const Hotel = () => {
     return (
         <div>
             <Link to="/"><button>Go back</button></Link>
-            
-            <h1>{hotel.name}</h1>
 
-            <Bookings bookings={hotel.bookings} hotelId={hotelId}/>
+            <HotelInfoCard
+                name={hotel.name}
+                description={hotel.description}
+                image={hotel.image}
+                setIsOpen={setIsOpen}
+            />
 
-            <div style={{ marginTop: 50 }}>
-                <button onClick={() => setIsOpen(true)}>NEW BOOKING</button>
-            </div>
+            <Bookings bookings={hotel.bookings} hotelId={hotelId} />
 
             <NewBookingDialog
                 isOpen={isOpen}
                 closeDialog={closeDialog}
-                bookings={hotel?.bookings}
+                bookings={hotel.bookings}
                 hotelId={hotelId}
             />
         </div>
