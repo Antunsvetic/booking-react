@@ -31,7 +31,7 @@ const Bookings = ({ bookings, hotelId }) => {
             <h2>Bookings: </h2>
 
             {bookings?.map(booking => (
-                <div key={booking.id}>
+                <div key={booking.id} className="booking-list__item">
                     <p>Check in: {booking.checkIn} - Check out: {booking.checkOut}</p>
                     <button
                         style={{ marginRight: 20 }}

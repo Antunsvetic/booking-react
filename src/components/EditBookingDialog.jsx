@@ -4,7 +4,6 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import { Button } from '@mui/material';
 
 import moment from 'moment';
 import DatePickerInput from './DatePickerInput';
@@ -95,7 +94,7 @@ const EditBookingDialog = ({ isOpen, bookings, editingBooking, hotelId, closeDia
             open={isOpen}
             onClose={handleDialogClosing}
         >
-            <DialogTitle>New booking</DialogTitle>
+            <DialogTitle sx={{ textAlign: "center" }}>Edit booking</DialogTitle>
             <DialogContent>
                 <DatePickerInput
                     label="Check IN"
@@ -119,14 +118,14 @@ const EditBookingDialog = ({ isOpen, bookings, editingBooking, hotelId, closeDia
                     resetState={() => resetState("CHECK_OUT")}
                 />
             </DialogContent>
-            <DialogActions>
-                <Button onClick={handleDialogClosing}>Close</Button>
-                <Button
+            <DialogActions sx={{ margin: "0 auto" }}>
+                <button onClick={handleDialogClosing}>Close</button>
+                <button
                     onClick={handleUpdateBooking}
                     disabled={isSaveButtonDisabled}
                 >
                     Save
-                </Button>
+                </button>
             </DialogActions>
         </Dialog>
     )
