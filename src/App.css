@@ -11,9 +11,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -22,6 +24,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -32,6 +35,41 @@
     animation: logo-spin infinite 20s linear;
   }
 }
+
+.hotel-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.hotel-card {
+  margin-bottom: 20px;
+}
+
+/* Desktop */
+@media screen and (min-width: 60em) {
+  .hotel-card {
+     flex: 0 1 calc(33.33% - 1em); /* 3 cards in a row */
+     margin: 0.5em; /* Adjust the margin as needed */
+  }
+ }
+
+/* Tablets */
+@media screen and (min-width: 40em) and (max-width: 59.99em) {
+  .hotel-card {
+    flex: 0 1 calc(50% - 1em);
+    /* 2 cards in a row */
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 39.99em) {
+  .hotel-card {
+    flex: 0 1 calc(100% - 1em);
+    /* 1 card in a row */
+  }
+}
+
 
 .card {
   padding: 2em;
@@ -49,15 +87,15 @@
   align-items: flex-start;
 }
 
-.hotels-list__container button{
+.hotels-list__container button {
   width: 200px;
 }
 
 .MuiDayCalendar-weekContainer .Mui-disabled {
   pointer-events: auto !important;
- }
- 
- .MuiDayCalendar-weekContainer .Mui-disabled:hover::after {
+}
+
+.MuiDayCalendar-weekContainer .Mui-disabled:hover::after {
   content: "Unavailable" !important;
   position: absolute !important;
   background-color: rgba(44, 224, 224, 0.108) !important;
@@ -67,7 +105,7 @@
   font-size: 8px !important;
   top: 100% !important;
   left: 50% !important;
-  transform: translateX(-50%) !important; 
+  transform: translateX(-50%) !important;
   white-space: nowrap !important;
   z-index: 10 !important;
- }
+}

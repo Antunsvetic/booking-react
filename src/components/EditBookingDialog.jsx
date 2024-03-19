@@ -56,6 +56,7 @@ const EditBookingDialog = ({ isOpen, bookings, editingBooking, hotelId, closeDia
         const { checkIn, checkOut } = editingBooking || {};
 
         // if nothing changed dont update
+        // TODO: add error text
         if (checkIn === checkInDate && checkOut === checkOutDate) {
             closeDialog()
             return;

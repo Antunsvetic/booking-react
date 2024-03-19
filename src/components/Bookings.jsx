@@ -1,8 +1,9 @@
 import { useState } from "react";
-import EditBookingDialog from "./EditBookingDialog";
-
 import { useDispatch } from "react-redux";
 import { deleteBooking } from "../state/hotels/hotelsSlice";
+
+import EditBookingDialog from "./EditBookingDialog";
+
 
 const Bookings = ({ bookings, hotelId }) => {
     const dispatch = useDispatch()
@@ -10,7 +11,7 @@ const Bookings = ({ bookings, hotelId }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [editingBooking, setEditingBooking] = useState(null)
 
-    if(bookings.length < 1) return <h2>No bookings...</h2> 
+    if (bookings.length < 1) return <h2>No bookings...</h2>
 
     const handleEditClick = (booking) => {
         setEditingBooking(booking)
@@ -29,6 +30,7 @@ const Bookings = ({ bookings, hotelId }) => {
     return (
         <>
             <h2>Bookings: </h2>
+            
             {bookings?.map(booking => (
                 <div key={booking.id}>
                     <p>Check in: {booking.checkIn} - Check out: {booking.checkOut}</p>
